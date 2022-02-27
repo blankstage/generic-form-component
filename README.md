@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Generic Form Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Launch application
+- npm i
+- npm start
 
-## Available Scripts
+## Comments
+I went through a few iterations of structuring the data and the code, being somewhat unfamiliar with form elements as well as still undusting and re-learning some React. Towards the end of the allotted time I learned about composition in React and begun on an implementation of it, but did not get far enough to properly include it in the final product.
+I'm decently satisfied but have a few improvements I'd like to make and gladly discuss, some being:
+- Switch to using composition for extendability
+- Enable options of listening for changes to individual fields & the form state as a whole
+- Configure when validation should happen (onChange/onSubmit etc)
+- Adding FieldSet & Legend for sectioning
+- Naturally, some styling
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Decision Documentation
+### FormTextInput
+#### id
+Enabling clicking on the label to target the input field, accessibility support & differentiating between other inputs
+#### name
+Used as label and as a key for the data structure sent back on submit
+#### defaultValue (*Optional*)
+Default value
+#### validation (*Optional*)
+Was on the fence of going with HTML Validation or custom JS validation.
+Chose HTML Validation because of the simplicity of validating towards a regex.
+It sacrifices customizability but offers simplicity & robustness.
+##### title (*Optional*)
+Title to display in the validation message
+##### regEx (*Optional*)
+Required regEx to match for validation
+##### required (*Optional*)
+If the field is required for submission
